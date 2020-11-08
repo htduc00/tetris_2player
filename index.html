@@ -21,21 +21,27 @@
             height: 5vh;
             width: 20vh;
         }
-        canvas {
+        .next{
+            border: solid .2em #fff;
+        }
+        .tetris {
             border: solid .2em #fff;
             height: 90vh;
         }
     </style>
 </head>
 <body>
-    <div class="player">
+    <div class="player" id = "player1">
         <div class="score"></div>
-        <canvas class="tetris" width="240" height="400"></canvas>
+        <canvas class="tetris" width="240" height="400"></canvas> 
+        <canvas  id ="next" class="next" width="200" height="200"></canvas>
     </div>
     <button class="button" id="start_game">Start</button>
-    <div class="player">
+    <div  class ="message" id="messageBlock"></div>
+    <div class="player" id = "player2">
         <div class="score"></div>
-        <canvas class="tetris" width="240" height="400"></canvas>
+        <canvas class="tetris" width="240" height="400"></canvas> 
+        <canvas id ="next" class="next" width="200" height="200"> </canvas>
     </div>
     <script src="arena.js"></script>
     <script src="player.js"></script>
