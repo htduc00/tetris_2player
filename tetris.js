@@ -11,9 +11,9 @@ class Tetris
         this.player = new Player(this);
         this.req = null;
         this.canvasNext = element.querySelector('canvas.next');
+        this.canvasNext.width += 0;
         this.contextNext = this.canvasNext.getContext('2d');
         this.contextNext.scale(30,30);
-        this.ghostColor = #fff;
         this.colors = [
             null,
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxElEQVQ4T2NkYGBg6Jz34T+Ifv3kGIOojBWYBgFkNlgADfTUeTEygjQLC3Iz3Li8G5sanGIauq5gPYwlTdvAtpMLwC6AORlkKjEA2bUYBvDxsYDN+PTpDwOIDaLRAYoByF4AuQCXJmRDCLoAm604DUB3AclhQK4Bb19cYRCW0EGNRrLCgBQXvH3/lQE90aEkJGzpAKYJRIMAzACcXiA2ELEaABIkBoACDwbAXoBlDGI0w9TAMxNIgFCGgjkX5kKYC0DZGQAfwJNr7nKi7AAAAABJRU5ErkJggg==',
@@ -52,6 +52,7 @@ class Tetris
         this.drawMatrix(this.arena.matrix, {x: 0, y: 0});
         this.drawMatrix(this.player.matrix, this.player.pos);
         this.drawNext(this.player.matrixNext, {x: 2, y: 2});
+
     }
 
     drawMatrix(matrix, offset)
@@ -71,21 +72,21 @@ class Tetris
         });
     }
 
-    drawNext(matrix, offset)
-    {
-        matrix.forEach((row, y) => {
-            row.forEach((value, x) => {
-                if (value !== 0) {
-                    this.context.fillStyle = this.ghostColor;
-                    this.context.fillRect(x + offset.x,
-                                     y + offset.y,
-                                     1, 1);
-                }
-            });
-        });
-    }
+    // drawNext(matrix, offset)
+    // {
+    //     matrix.forEach((row, y) => {
+    //         row.forEach((value, x) => {
+    //             if (value !== 0) {
+    //                 this.context.fillStyle = this.ghostColor;
+    //                 this.context.fillRect(x + offset.x,
+    //                                  y + offset.y,
+    //                                  1, 1);
+    //             }
+    //         });
+    //     });
+    // }
 
-    drawGhost(matrix, offset)
+    drawNext(matrix, offset)
     {
         matrix.forEach((row, y) => {
             row.forEach((value, x) => {
